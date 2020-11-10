@@ -9,6 +9,7 @@ import { CarroComprasComponent } from './carro-compras/carro-compras.component';
 import { FormsModule } from '@angular/forms';
 import { ReseniasContactoComponent } from './resenias-contacto/resenias-contacto.component';
 import { ReseniasHomeComponent } from './resenias-home/resenias-home.component';
+import { InputNumeroComponent } from './input-numero/input-numero.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ReseniasHomeComponent } from './resenias-home/resenias-home.component';
     ListaPeliculasComponent,
     CarroComprasComponent,
     ReseniasContactoComponent,
-    ReseniasHomeComponent
+    ReseniasHomeComponent,
+    InputNumeroComponent
   ],
   imports: [
     BrowserModule,
