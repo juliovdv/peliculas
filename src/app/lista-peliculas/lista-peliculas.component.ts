@@ -14,28 +14,32 @@ export class ListaPeliculasComponent implements OnInit {
     nombre: "Bohemian Rhapsody",
     genero: "Musical",
     precio:100,
-    stock:5
+    stock:5,
+    cantidad:0,
   },
   {
     img: "../assets/img/district9.jpg",
     nombre: "District 9",
     genero: "Ciencia Ficcion",
     precio:100,
-    stock:5
+    stock:5,
+    cantidad:0,
   },
   {
     img: "../assets/img/elgranhotelbudapest.jpg",
     nombre: "Hotel Budapest",
     genero: "Drama, Comedia",
     precio:100,
-    stock:5
+    stock:5,
+    cantidad:0,
   },
   {
     img: "../assets/img/gegendiewand.jpg",
     nombre: "Gegen die wand",
     genero: "Drama",
     precio:100,
-    stock:5
+    stock:5,
+    cantidad:0,
   },
 ]
 
@@ -43,5 +47,26 @@ export class ListaPeliculasComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  upCantidad(pelicula: Pelicula): void{
+    if (pelicula.cantidad<pelicula.stock)
+    pelicula.cantidad++;
+  }
+
+  downCantidad(pelicula: Pelicula): void{
+    if (pelicula.cantidad>0)
+    pelicula.cantidad--;
+  }
+
+  controlCantidad(event, pelicula: Pelicula): void{
+    
+    if (event.target.value < 0)
+      pelicula.cantidad = 0;
+      
+    if (event.target.value > pelicula.stock)
+      pelicula.cantidad = pelicula.stock;
+    
+  }
+
 
 }

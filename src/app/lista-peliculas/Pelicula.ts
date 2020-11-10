@@ -4,4 +4,5 @@ export interface Pelicula {
     genero: string;
     precio: number;
     stock: number;
+    cantidad: number;
 }

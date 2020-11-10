@@ -2,7 +2,7 @@
     <h5>Lista de peliculas</h5>
 </div>
 
-<table class="table">
+<table class="table text-center">
     <thead>
         <tr class="thead-light">
             <th scope="col">Caratula</th>
@@ -10,15 +10,28 @@
             <th scope="col">Genero</th>
             <th scope="col">Precio</th>
             <th scope="col">Stock</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Comprar</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let pelicula of peliculas">
-            <td><img [src]="pelicula.img" [alt]="pelicula.img"></td>
+            <td><img width="100" class="img-thumbnail" [src]="pelicula.img" [alt]="pelicula.img"></td>
             <td>{{pelicula.nombre}}</td>
             <td>{{pelicula.genero}}</td>
             <td>{{pelicula.precio}}</td>
             <td>{{pelicula.stock}}</td>
+            <td>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-secondary btn-sm" (click)="downCantidad(pelicula)">-</button>
+                    </div>
+                    <input type="number" [(ngModel)]="pelicula.cantidad" (keyup)="controlCantidad($event, pelicula)">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary btn-sm" (click)="upCantidad(pelicula)">+</button>
+                    </div>
+                </div>
+            </td>
         </tr>
     </tbody>
 </table>
