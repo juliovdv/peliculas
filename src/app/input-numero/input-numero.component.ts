@@ -17,7 +17,10 @@ export class InputNumeroComponent implements OnInit {
   max: number;
   @Output()
   cantidadChange: EventEmitter<number> = new EventEmitter<number>();
-
+  @Output()
+  fueraRango: EventEmitter<String> = new EventEmitter<String>(); 
+  
+  
   ngOnInit(): void {
   }
 
@@ -28,6 +31,8 @@ export class InputNumeroComponent implements OnInit {
       this.cantidad++;
       this.cantidadChange.emit(this.cantidad);
     }
+    else
+      this.fueraRango.emit("La cantidad no puede superar al stock.");
   }
 
   downCantidad(): void {
@@ -35,15 +40,21 @@ export class InputNumeroComponent implements OnInit {
       this.cantidad--;
       this.cantidadChange.emit(this.cantidad);
     }
+    else
+      this.fueraRango.emit("La cantidad no puede ser menor a 0.");
   }
 
   controlCantidad(event): void {
 
-    if (event.target.value < 0)
+    if (event.target.value < 0){
       this.cantidad = 0;
+      this.fueraRango.emit("La cantidad no puede ser menor a 0.");
+    }
     else
-      if (event.target.value > this.max)
+      if (event.target.value > this.max){
         this.cantidad = this.max;
+        this.fueraRango.emit("La cantidad no puede superar al stock.");
+      }
     this.cantidadChange.emit(this.cantidad);
   }
 }

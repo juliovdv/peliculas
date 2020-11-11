@@ -6,16 +6,14 @@
         <tr class="thead-light">
             <th scope="col">Nombre</th>
             <th scope="col">Cant</th>
-            <th scope="col">Borrar</th>
         </tr>
     </thead>
-<!--
+
     <tbody>
-        <tr *ngFor="let item of items">
+        <tr *ngFor="let item of listaCompras$ | async">
             <td>{{item.nombre}}</td>
-            <td>{{item.cant}}</td>
-            <td>{{item.borrar}}</td>
+            <td>{{item.cantidad}}</td>
         </tr>
     </tbody>
--->
+
 </table> 
